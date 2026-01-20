@@ -4,6 +4,7 @@ const connectDB = require('./config/db');
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const runMigrations = require('./migrations/runMigrations');
+const autoPing = require("./utils/autoPing");
 
 // Load env variables
 dotenv.config();
@@ -36,6 +37,17 @@ const startServer = async () => {
 
     const swaggerDocs = swaggerJsDoc(swaggerOptions);
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+
+    // Ping route (keep alive)
+
+// routes
+app.use("/ping", require("./routes/ping"));
+
+//  AUTO PING START (Render URL)
+if (process.env.RENDER_EXTERNAL_URL) {
+  autoPing(`${process.env.RENDER_EXTERNAL_URL}/ping`);
+}
 
     // Routes
     app.use('/api/auth', require('./routes/auth'));
