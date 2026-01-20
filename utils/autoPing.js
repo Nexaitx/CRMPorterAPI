@@ -6,10 +6,10 @@ const autoPing = (url) => {
   setInterval(() => {
     https
       .get(url, (res) => {
-        console.log(`🔁 Auto-ping status: ${res.statusCode}`);
+        console.log(` Auto-ping status: ${res.statusCode}`);
       })
       .on("error", (err) => {
-        console.error("❌ Auto-ping error:", err.message);
+        console.error(" Auto-ping error:", err.message);
       });
   }, AUTO_PING_INTERVAL);
 };
