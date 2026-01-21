@@ -92,52 +92,52 @@ router.post('/login', authController.login);
 router.post("/forgot-password", authController.forgotPassword);
 
 
-/**
- * @swagger
- * /api/auth/reset-password/{token}:
- *   get:
- *     summary: Open reset password page
- *     tags: [Auth]
- *     parameters:
- *       - in: path
- *         name: token
- *         required: true
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: Reset page opened
- */
-router.get("/reset-password/:token", authController.openResetPage);
+// /**
+//  * @swagger
+//  * /api/auth/reset-password/{token}:
+//  *   get:
+//  *     summary: Open reset password page
+//  *     tags: [Auth]
+//  *     parameters:
+//  *       - in: path
+//  *         name: token
+//  *         required: true
+//  *         schema:
+//  *           type: string
+//  *     responses:
+//  *       200:
+//  *         description: Reset page opened
+//  */
+// router.get("/reset-password/:token", authController.openResetPage);
 
 
-/**
- * @swagger
- * /api/auth/reset-password/{token}:
- *   post:
- *     summary: Reset password
- *     tags: [Auth]
- *     parameters:
- *       - in: path
- *         name: token
- *         required: true
- *         schema:
- *           type: string
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               password:
- *                 type: string
- *                 example: newPassword123
- *     responses:
- *       200:
- *         description: Password changed successfully
- */
-router.post("/reset-password/:token", authController.resetPassword);
+// /**
+//  * @swagger
+//  * /api/auth/reset-password/{token}:
+//  *   post:
+//  *     summary: Reset password
+//  *     tags: [Auth]
+//  *     parameters:
+//  *       - in: path
+//  *         name: token
+//  *         required: true
+//  *         schema:
+//  *           type: string
+//  *     requestBody:
+//  *       required: true
+//  *       content:
+//  *         application/json:
+//  *           schema:
+//  *             type: object
+//  *             properties:
+//  *               password:
+//  *                 type: string
+//  *                 example: newPassword123
+//  *     responses:
+//  *       200:
+//  *         description: Password changed successfully
+//  */
+// router.post("/reset-password/:token", authController.resetPassword);
 
 
 
