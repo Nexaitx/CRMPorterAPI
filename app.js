@@ -40,7 +40,8 @@ const startServer = async () => {
 
 
     // Ping route (keep alive)
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); 
 // routes
 app.use("/ping", require("./routes/ping"));
 
